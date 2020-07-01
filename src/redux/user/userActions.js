@@ -8,7 +8,7 @@ export const fetchUser = (user) => {
       .then(response => {
         dispatch(fetchUserSuccess(response.data)) 
       })
-      .catch(error => dispatch(fetchUserError(error)))
+      .catch(error => dispatch(fetchUserError(error.message)))
     }
 }
 

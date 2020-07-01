@@ -11,33 +11,43 @@ class User extends Component {
   }
 
 
-  onChangeHandler = () => {
-    console.log('on change handler')
+  onChangeHandler = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { fetchUser } = this.props
+    const { fetchUser } = this.props;
+    const user = this.state.user;
 
-    fetchUser('gertie-sheshe');
+    fetchUser(user);
   }
 
   render() {
+    const { user: { userData, error }} = this.props;
+    console.log('PROPS', error)
     return (
       <div>
         <form onSubmit={this.onSubmit}>
           <label />
-          <input type="text" onChange={this.onChangeHandler} />
+          <input type="text" name="user" onChange={this.onChangeHandler} />
           <input type="submit" />
         </form>
-        <UserComponent />
+        {userData && <UserComponent userRepos={userData} />}
+        {error && <p>User not found</p>}
       </div>
     )
   }
 }
 
-// const mapStateToProps = () => { }
+const mapStateToProps = (state) => ({
+  user: state.user
+})
 
-export default connect(null, {
+export default connect(mapStateToProps, {
   fetchUser
 })(User);

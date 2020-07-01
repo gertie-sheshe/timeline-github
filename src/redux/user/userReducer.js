@@ -1,8 +1,20 @@
 const INITIAL_STATE = {
-   user: 'Test User'
+  userData: null,
+  error: null
 }
-const userReducer = (state = INITIAL_STATE, action) => {
-    switch (action.type) {
+const userReducer = (state = INITIAL_STATE, action = {}) => {
+  switch (action.type) {
+    case 'FETCH_USER_SUCCESS':
+      return {
+        ...state,
+        userData: action.payload
+      }
+    case 'FETCH_USER_ERROR':
+      return {
+        ...state,
+        userData: null,
+        error: action.payload
+      }
       default:
         return state;
     }
