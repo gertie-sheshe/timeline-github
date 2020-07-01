@@ -1,10 +1,10 @@
 const INITIAL_STATE = {
-    user: 'Test User'
+   user: 'Test User'
 }
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        default:
-            return state;
+      default:
+        return state;
     }
 }
 
