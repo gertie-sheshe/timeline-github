@@ -29,7 +29,6 @@ class User extends Component {
 
   render() {
     const { user: { userData, error }} = this.props;
-    console.log('PROPS', error)
     return (
       <div>
         <form onSubmit={this.onSubmit}>
