@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserComponent from './user-component';
-import { fetchUser } from '../redux/user/userActions';
+import { fetchUser } from '../../redux/user/userActions';
 import './user.scss'
 
 
