@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import UserComponent from './user-component';
 import { fetchUser } from '../../redux/user/userActions';
+import {selectSortedUser, selectError} from '../../redux/user/userSelectors';
 import './user.scss'
 
 
@@ -28,7 +30,7 @@ class User extends Component {
   }
 
   render() {
-    const { user: { userData, error }} = this.props;
+    const { sortedUser, error } = this.props;
     return (
       <div>
         <form onSubmit={this.onSubmit}>
@@ -36,16 +38,17 @@ class User extends Component {
           <input type="text" name="user" onChange={this.onChangeHandler} />
           <input type="submit" />
         </form>
-        {userData && <UserComponent userRepos={userData} />}
+        {sortedUser && <UserComponent userRepos={sortedUser} />}
         {error && <p>User not found</p>}
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  user: state.user
-})
+const mapStateToProps = createStructuredSelector({
+  sortedUser: selectSortedUser,
+  error: selectError
+});
 
 export default connect(mapStateToProps, {
   fetchUser
