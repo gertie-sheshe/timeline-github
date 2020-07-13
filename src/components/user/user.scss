@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+      background-color:#2B343C;
+  
+      .user-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+  
+      .user-component {
+          a {
+              text-decoration: none;
+          }
+          .wrapper {
+              display: flex;
+              flex-wrap: wrap;
+              max-width: 800px;
+              margin: 0 auto;
+  
+              .box-area {
+                  display: flex;
+                  flex-wrap: nowrap;
+                  justify-content: center;
+                  width: 100%;
+  
+                  .box-date {
+                      display: flex;
+                      background:linear-gradient(#65ac6e, #fff) no-repeat center/2px 100%;
+                      /* background: linear-gradient(to right, #2B343C 45%, #65ac6e 45%, #65ac6e 45%,#2B343C 48%); */
+                      order: 2;
+                      /* text-align: center; */
+                      flex-basis: 100px;
+                      justify-content: center;
+  
+                      span {
+                        border-radius: 50%;
+                        background-color: #fff;
+                        height: 15px;
+                        width: 15px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                          div {
+                              border-radius: 50%;
+                              border: solid 2px #65ac6e;
+                              height: 11px;
+                              width: 11px
+                          }
+                      }
+                  }
+  
+                  .box-text {
+                      text-align: left;
+                      order: 3;
+                      width: 80%;
+                      padding-left: 10px;
+                      margin-bottom: 3%;
+                  }
+              }
+          }
+          h1 {
+              color: #4BA166
+          }
+          .repo-year {
+              color: #4BA166;
+              margin: 0;
+          }
+  
+          .repo-title {
+              color: #fff;
+              margin: 0
+          }
+  
+          .repo-description {
+              color: #9A9DA1
+          }
+      }
+  
+      @media (min-width: 640px) {
+     
+        .box-text{
+            width: 40% !important;
+        }
+  
+        .custom {
+            width: 40%
+        }
+    
+        .box-area:nth-child(odd) {
+          .box-text {
+            order: 1 !important;
+            text-align: right !important;
+          }
+  
+          .custom {
+            order: 3
+          }
+        }
+    
+    }
+  }

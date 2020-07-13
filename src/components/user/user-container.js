@@ -32,7 +32,7 @@ class User extends Component {
   render() {
     const { sortedUser, error } = this.props;
     return (
-      <div>
+      <div className="user-container">
         <form onSubmit={this.onSubmit}>
           <label />
           <input type="text" name="user" onChange={this.onChangeHandler} />
