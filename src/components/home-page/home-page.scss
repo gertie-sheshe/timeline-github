@@ -1,0 +1,16 @@
+.homepage {
+    height: 40vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 50px;
+
+    p {     
+        color: #4BA166;
+    }
+
+    @media (min-width: 640px) {
+        p {
+            font-size: xx-large;
+        }
+    }
+}

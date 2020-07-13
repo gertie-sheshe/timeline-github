@@ -5,7 +5,6 @@ import moment from 'moment';
 const User = ({userRepos}) => {
   return (
     <div className="user-component">
-      <h1>GitHub Timeline</h1>
       <div className="wrapper">
         {userRepos && userRepos.dates.map(date => {
           return (
@@ -23,6 +22,7 @@ const User = ({userRepos}) => {
                       <p className="repo-year">{`${moment(repo.created_at).format('MMMM')} ${date}`}</p>
                       <a href={repo.html_url} className="repo-title">{repo.name}</a>
                       <p className="repo-description">{repo.description ? repo.description : 'Repository has no description'}</p>
+                      <p className="repo-description">Language: {repo.language}</p>
                     </div>
                   </div>
                 )

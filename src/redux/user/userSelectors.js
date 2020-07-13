@@ -5,6 +5,8 @@ const selectUser = state => state.user.userData;
 
 export const selectError = state => state.user.error;
 
+export const selectHomePage = state => state.user.homePage;
+
 export const selectSortedUser = createSelector([selectUser], (user) => {
 
     const yearMap = {};
