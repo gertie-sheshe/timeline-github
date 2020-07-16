@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import UserComponent from './user-component';
+import Loader from '../loader/loader'
 import HomePage from '../home-page/home-page';
 import { fetchUser } from '../../redux/user/userActions';
-import {selectSortedUser, selectError, selectHomePage} from '../../redux/user/userSelectors';
+import {selectSortedUser, selectError, selectHomePage, selectLoading, selectUser} from '../../redux/user/userSelectors';
 import './user.scss'
 
 
@@ -31,7 +32,7 @@ class User extends Component {
   }
 
   render() {
-    const { sortedUser, error, homePage } = this.props;
+    const { sortedUser, error, homePage, loading, user } = this.props;
 
     return (
       <div className="user-container">
@@ -42,7 +43,9 @@ class User extends Component {
           <input className="input" type="text" name="user" onChange={this.onChangeHandler} /><br/>
           <input className="button" type="submit" />
         </form>
+        {loading && <Loader/>}
         {sortedUser && <UserComponent userRepos={sortedUser} />}
+        {user && user.length === 0 && <p>{this.state.user} has no public repositories</p>}
         {error && <p>User not found</p>}
       </div>
     )
@@ -52,7 +55,9 @@ class User extends Component {
 const mapStateToProps = createStructuredSelector({
   sortedUser: selectSortedUser,
   error: selectError,
-  homePage: selectHomePage
+  homePage: selectHomePage,
+  loading: selectLoading,
+  user: selectUser
 });
 
 export default connect(mapStateToProps, {

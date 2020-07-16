@@ -2,11 +2,14 @@ import React from 'react';
 import moment from 'moment';
 
 // I do not feel confident about the loop within loop. Find more performant solution?
-const User = ({userRepos}) => {
+const User = ({ userRepos }) => {
+
+  console.log('REPOOS', userRepos)
+  
   return (
     <div className="user-component">
       <div className="wrapper">
-        {userRepos && userRepos.dates.map(date => {
+        {userRepos.dates && userRepos.dates.map(date => {
           return (
             <React.Fragment key={date}>
               {userRepos.data[date].map(repo => {
@@ -31,7 +34,7 @@ const User = ({userRepos}) => {
           )
         })}
       </div>   
-    </div>
+    </div >
   )
 }
 
