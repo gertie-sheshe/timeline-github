@@ -12,9 +12,18 @@
           align-items: center;
           text-align: center;
 
+          label {
+              color: #fff;
+              margin-right: 5px;
+          }
+
         h1 {
             color: #4BA166
         }
+
+         .error-warning {
+             color: #9A9DA1;
+         }
 
         form {
             width: 100vw;

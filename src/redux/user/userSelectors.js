@@ -10,7 +10,6 @@ export const selectHomePage = state => state.user.homePage;
 export const selectLoading = state => state.user.fetching;
 
 export const selectSortedUser = createSelector([selectUser], (user) => {
-    console.log('WAAAUUU')
 
     const yearMap = {};
 

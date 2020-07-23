@@ -3,6 +3,11 @@
     display: flex;
     align-items: flex-end;
     padding: 0 50px;
+    flex-direction: column;
+
+    h1 {
+        margin: auto;
+    }
 
     p {     
         color: #4BA166;

@@ -1,8 +1,9 @@
 import React from 'react';
+import './loader.scss';
 
 const Loader = () => (
     <div>
-        <p>Fetching...</p>
+        <div className="loader"></div>
     </div>
 )
 

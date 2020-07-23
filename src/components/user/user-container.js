@@ -39,14 +39,14 @@ class User extends Component {
         {!homePage && <h1>GitHub Timeline</h1>}
         {homePage && <HomePage/>}
         <form onSubmit={this.onSubmit}>
-          <label />
-          <input className="input" type="text" name="user" onChange={this.onChangeHandler} /><br/>
-          <input className="button" type="submit" />
+          <label for="username">User:</label>
+          <input id="username" className="input" type="text" name="user" onChange={this.onChangeHandler} /><br/>
+          <input className="button" type="submit"/>
         </form>
         {loading && <Loader/>}
         {sortedUser && <UserComponent userRepos={sortedUser} />}
-        {user && user.length === 0 && <p>{this.state.user} has no public repositories</p>}
-        {error && <p>User not found</p>}
+        {user && user.length === 0 && <p className="error-warning">Sorry, this user has no public repositories</p>}
+        {error && <p className="error-warning">User not found</p>}
       </div>
     )
   }
