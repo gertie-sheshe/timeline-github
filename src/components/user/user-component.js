@@ -1,10 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-// I do not feel confident about the loop within loop. Find more performant solution?
 const User = ({ userRepos }) => {
-
-  console.log('REPOOS', userRepos)
   
   return (
     <div className="user-component">
