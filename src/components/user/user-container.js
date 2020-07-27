@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import UserComponent from './user-component';
+import Loader from '../loader/loader'
+import HomePage from '../home-page/home-page';
 import { fetchUser } from '../../redux/user/userActions';
-import {selectSortedUser, selectError} from '../../redux/user/userSelectors';
+import {selectSortedUser, selectError, selectHomePage, selectLoading, selectUser} from '../../redux/user/userSelectors';
 import './user.scss'
 
 
@@ -30,16 +32,21 @@ class User extends Component {
   }
 
   render() {
-    const { sortedUser, error } = this.props;
+    const { sortedUser, error, homePage, loading, user } = this.props;
+
     return (
-      <div>
+      <div className="user-container">
+        {!homePage && <h1>GitHub Timeline</h1>}
+        {homePage && <HomePage/>}
         <form onSubmit={this.onSubmit}>
-          <label />
-          <input type="text" name="user" onChange={this.onChangeHandler} />
-          <input type="submit" />
+          <label for="username">User:</label>
+          <input id="username" className="input" type="text" name="user" onChange={this.onChangeHandler} /><br/>
+          <button className="button" type="submit">Submit</button>
         </form>
+        {loading && <Loader/>}
         {sortedUser && <UserComponent userRepos={sortedUser} />}
-        {error && <p>User not found</p>}
+        {user && user.length === 0 && <p className="error-warning">Sorry, this user has no public repositories</p>}
+        {error && <p className="error-warning">User not found</p>}
       </div>
     )
   }
@@ -47,7 +54,10 @@ class User extends Component {
 
 const mapStateToProps = createStructuredSelector({
   sortedUser: selectSortedUser,
-  error: selectError
+  error: selectError,
+  homePage: selectHomePage,
+  loading: selectLoading,
+  user: selectUser
 });
 
 export default connect(mapStateToProps, {
