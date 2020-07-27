@@ -41,7 +41,7 @@ class User extends Component {
         <form onSubmit={this.onSubmit}>
           <label for="username">User:</label>
           <input id="username" className="input" type="text" name="user" onChange={this.onChangeHandler} /><br/>
-          <input className="button" type="submit"/>
+          <button className="button" type="submit">Submit</button>
         </form>
         {loading && <Loader/>}
         {sortedUser && <UserComponent userRepos={sortedUser} />}
