@@ -9,7 +9,7 @@ import {selectSortedUser, selectError, selectHomePage, selectLoading, selectUser
 import './user.scss'
 
 
-class User extends Component {
+export class User extends Component {
   state = {
     user: ''
   }
@@ -39,14 +39,14 @@ class User extends Component {
         {!homePage && <h1>GitHub Timeline</h1>}
         {homePage && <HomePage/>}
         <form onSubmit={this.onSubmit}>
-          <label for="username">User:</label>
+          <label htmlFor="username">User:</label>
           <input id="username" className="input" type="text" name="user" onChange={this.onChangeHandler} /><br/>
-          <button className="button" type="submit">Submit</button>
+          <button data-testid="button" className="button" type="submit">Submit</button>
         </form>
         {loading && <Loader/>}
         {sortedUser && <UserComponent userRepos={sortedUser} />}
-        {user && user.length === 0 && <p className="error-warning">Sorry, this user has no public repositories</p>}
-        {error && <p className="error-warning">User not found</p>}
+        {user && user.length === 0 && <p data-testid="warning" className="error-warning">Sorry, this user has no public repositories</p>}
+        {error && <p data-testid="error" className="error-warning">User not found</p>}
       </div>
     )
   }
@@ -59,6 +59,7 @@ const mapStateToProps = createStructuredSelector({
   loading: selectLoading,
   user: selectUser
 });
+
 
 export default connect(mapStateToProps, {
   fetchUser

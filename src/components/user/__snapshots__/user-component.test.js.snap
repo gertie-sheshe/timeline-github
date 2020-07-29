@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Component Matches Loader Snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="user-component"
+  >
+    <div
+      class="wrapper"
+    >
+      <div
+        class="box-area"
+      >
+        <div
+          class="custom"
+        />
+        <div
+          class="box-date"
+        >
+          <span>
+            <div />
+          </span>
+        </div>
+        <div
+          class="box-text"
+        >
+          <p
+            class="repo-year"
+          >
+            July 2020
+          </p>
+          <a
+            class="repo-title"
+          >
+            test-repo-one
+          </a>
+          <p
+            class="repo-description"
+          >
+            Test Repo
+          </p>
+          <p
+            class="repo-description"
+          >
+            Language: HTML
+          </p>
+        </div>
+      </div>
+      <div
+        class="box-area"
+      >
+        <div
+          class="custom"
+        />
+        <div
+          class="box-date"
+        >
+          <span>
+            <div />
+          </span>
+        </div>
+        <div
+          class="box-text"
+        >
+          <p
+            class="repo-year"
+          >
+            July 2021
+          </p>
+          <a
+            class="repo-title"
+          >
+            test-repo-two
+          </a>
+          <p
+            class="repo-description"
+          >
+            Test Repo
+          </p>
+          <p
+            class="repo-description"
+          >
+            Language: Javascript
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

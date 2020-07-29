@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Container Should render User Container 1`] = `
+<DocumentFragment>
+  <div
+    class="user-container"
+  >
+    <h1>
+      GitHub Timeline
+    </h1>
+    <form>
+      <label
+        for="username"
+      >
+        User:
+      </label>
+      <input
+        class="input"
+        id="username"
+        name="user"
+        type="text"
+      />
+      <br />
+      <button
+        class="button"
+        data-testid="button"
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

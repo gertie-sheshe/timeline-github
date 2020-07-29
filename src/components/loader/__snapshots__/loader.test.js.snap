@@ -5,6 +5,7 @@ exports[`Matches Loader Snapshot 1`] = `
   <div>
     <div
       class="loader"
+      data-testid="loader"
     />
   </div>
 </DocumentFragment>
