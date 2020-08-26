@@ -3,8 +3,8 @@ import User from './components/user/user-container';
 
 function App() {
   return (
-    <main >
-      <User/> 
+    <main>
+      <User />
     </main>
   );
 }
